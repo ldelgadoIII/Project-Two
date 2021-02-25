@@ -72,9 +72,9 @@ module.exports = function(app) {
   app.post('/api/lists', (req, res) => {
     // Add sequelize code for creating a post using req.body,
     // then return the result using res.json
-    db.List.create({
-      title: req.body.title
-    }).then((dbList) => res.json(dbList));
+    db.List.create(
+      req.body
+    ).then((dbList) => res.json(dbList));
   });
 
   // Update route to update an existing list
