@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   const Task = sequelize.define("Task", {
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
       validate: {
         // eslint-disable-next-line prettier/prettier
@@ -17,5 +17,15 @@ module.exports = function(sequelize, DataTypes) {
       // eslint-disable-next-line prettier/prettier
     },
   });
+
+  // eslint-disable-next-line prettier/prettier
+  Task.associate = (models) => {
+    models.Task.belongsToMany(models.User, {
+      through: "Completes",
+      as: "Task",
+      // eslint-disable-next-line prettier/prettier
+      foreignKey: "Task_Id",
+    });
+  };
   return Task;
 };
