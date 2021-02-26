@@ -27,8 +27,12 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = models => {
     models.User.belongsToMany(models.Task, {
-      through: "Completes",
-      as: "User",
+      through: {
+        model: "Completes",
+        as: "Tasks",
+        unique: false
+      },
+      constraints: false,
       foreignKey: "User_Id"
     });
 
