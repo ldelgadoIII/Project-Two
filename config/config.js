@@ -6,24 +6,20 @@ const db = {
     password: process.env.DB_PASS,
     database: "TYL_DB",
     host: "127.0.0.1",
-    // eslint-disable-next-line prettier/prettier
-    dialect: "mysql",
+    dialect: "mysql"
   },
   test: {
     username: "root",
     password: null,
     database: "TYL_DB_test",
     host: "127.0.0.1",
-    // eslint-disable-next-line prettier/prettier
-    dialect: "mysql",
+    dialect: "mysql"
   },
   production: {
     // eslint-disable-next-line camelcase
     use_env_variable: "JAWSDB_URL",
-    // eslint-disable-next-line prettier/prettier
-    dialect: "mysql",
-    // eslint-disable-next-line prettier/prettier
-  },
+    dialect: "mysql"
+  }
 };
 
 // eslint-disable-next-line prettier/prettier
