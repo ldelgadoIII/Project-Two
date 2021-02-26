@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const db = {
   development: {
     username: "root",
@@ -22,5 +20,4 @@ const db = {
   }
 };
 
-// eslint-disable-next-line prettier/prettier
 module.exports = db;
