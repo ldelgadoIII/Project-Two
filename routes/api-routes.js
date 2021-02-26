@@ -54,7 +54,9 @@ module.exports = function(app) {
   // Get route for retrieving all lists
   app.get("/api/lists", (req, res) => {
     // Add sequelize code to find all lists, and return them to the user with res.json
-    db.List.findAll({}).then(dbList => res.json(dbList));
+    db.List.findAll({
+      include: [{ model: db.Task }]
+    }).then(dbList => res.json(dbList));
   });
 
   // Get route for retrieving a single list
@@ -99,5 +101,19 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(dbList => res.json(dbList));
+  });
+
+  app.get("/api/tasks", (req, res) => {
+    const query = {};
+    if (req.query.list_id) {
+      query.ListId = req.query.ListId;
+    }
+    // Here we add an "include" property to our options in our findAll query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Author
+    db.Task.findAll({
+      where: query,
+      include: [db.List]
+    }).then(dbTask => res.json(dbTask));
   });
 };
