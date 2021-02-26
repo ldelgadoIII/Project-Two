@@ -116,4 +116,21 @@ module.exports = function(app) {
       include: [db.List]
     }).then(dbTask => res.json(dbTask));
   });
+
+  app.route("/api/tasks").post((req, res) => {
+    db.List.findOne({
+      where: {
+        id: req.body.ListId
+      }
+    }).then(list => {
+      list
+        .createTask({
+          description: req.body.description,
+          count: req.body.count
+        })
+        .then(task => {
+          res.json(task);
+        });
+    });
+  });
 };
