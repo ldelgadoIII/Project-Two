@@ -4,18 +4,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        // eslint-disable-next-line prettier/prettier
-        len: [1],
-        // eslint-disable-next-line prettier/prettier
-      },
+        len: [1]
+      }
     },
     count: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
-      // eslint-disable-next-line prettier/prettier
-      allowNull: false,
-      // eslint-disable-next-line prettier/prettier
-    },
+      allowNull: false
+    }
   });
 
   // eslint-disable-next-line prettier/prettier
@@ -23,9 +19,9 @@ module.exports = function(sequelize, DataTypes) {
     models.Task.belongsToMany(models.User, {
       through: "Completes",
       as: "Task",
-      // eslint-disable-next-line prettier/prettier
-      foreignKey: "Task_Id",
+      foreignKey: "Task_Id"
     });
+    models.Task.belongsTo(models.List);
   };
   return Task;
 };

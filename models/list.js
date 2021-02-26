@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       as: "List",
       foreignKey: "List_Id"
     });
+    models.List.hasMany(models.Task);
   };
 
   return List;
