@@ -3,6 +3,6 @@ form.login {
   margin-top: 50px;
 }
 
-.btn {
-  padding-top: 10px;
+.input-field label {
+  color: rgba(254, 254, 254, 0.948);
 }
