@@ -33,8 +33,12 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     models.User.belongsToMany(models.List, {
-      through: "StudentsLists",
-      as: "Student",
+      through: {
+        model: "StudentsLists",
+        as: "Lists",
+        unique: false
+      },
+      constraints: false,
       foreignKey: "Student_Id"
     });
 
