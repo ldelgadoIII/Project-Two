@@ -55,18 +55,20 @@
       </div>
       <!-- TEXT INPUT AREA -->
       <div class="row">
-        <form class="col s12" id="create-task">
-          <div class="row">
-            
-            <div class="input-field col s9">
-              <textarea id="task-item" name="newTask" class="materialize-textarea #ffffff white"></textarea>
-              <label for="taskInput">New Task</label>
-              <div class="col s6"><button class="btn waves-effect #4a148c purple darken-4" type="submit">Add Task
-                <i class="material-icons right"></i>
-              </button></div>
-            </div>
-            
+        <form id="create-task">
+          <div class="input-field col s9">
+          <label for="text-area">New Task</label>
+              
+          <textarea class="materialize-textarea #ffffff white" type="text" id="task-item" name="newTask" ></textarea>
+
+              
+          <button class="btn waves-effect #4a148c purple darken-4" type="submit">Add Task
+          </button>
+          
           </div>
+        </form>
+      </div>
+
           <!-- SHARE LINK -->
           
     <div class="col l3 s12">
@@ -74,10 +76,6 @@
       <ul>
         <li><a class="#f44336 red-text" href="#!">Share Link</a></li>
       </ul>
-    </div>
-    <div class="col l3 s12">
-        </form>
-      </div>
     </div>
     
   </div>

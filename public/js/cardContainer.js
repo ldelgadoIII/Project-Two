@@ -10,7 +10,7 @@ if (createTaskBtn) {
 
     console.log(JSON.stringify(newTask));
 
-    fetch("/api/tasks", {
+    fetch("/api/lists", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -19,9 +19,9 @@ if (createTaskBtn) {
       body: JSON.stringify(newTask)
     }).then(() => {
       // Empty the form
-      document.getElementById("task-item").value = "";
+      //document.getElementById("task-item").value = "";
       console.log("New task created");
-      location.reload();
+      // location.reload();
     });
   });
 }
