@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       defaultValue: 0,
       allowNull: false
-    },
+    }
   });
 
   // eslint-disable-next-line prettier/prettier
