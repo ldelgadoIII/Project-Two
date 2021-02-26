@@ -13,4 +13,14 @@ Router.get("/", async (req, res) => {
   });
 });
 
+// Router.post("/", async (req, res) => {
+//   const data = await db.List.create(req.body);
+//   const lists = data.map(list => list.dataValues);
+//   console.log(lists);
+
+//   res.render("index", {
+//     lists: lists
+//   });
+// });
+
 module.exports = Router;

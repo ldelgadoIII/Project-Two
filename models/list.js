@@ -9,8 +9,12 @@ module.exports = function(sequelize, DataTypes) {
   List.associate = models => {
     models.List.belongsTo(models.User);
     models.List.belongsToMany(models.User, {
-      through: "StudentsLists",
-      as: "List",
+      through: {
+        model: "StudentsLists",
+        as: "Students",
+        unique: false
+      },
+      constraints: false,
       foreignKey: "List_Id"
     });
     models.List.hasMany(models.Task);

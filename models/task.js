@@ -17,8 +17,12 @@ module.exports = function(sequelize, DataTypes) {
   // eslint-disable-next-line prettier/prettier
   Task.associate = (models) => {
     models.Task.belongsToMany(models.User, {
-      through: "Completes",
-      as: "Task",
+      through: {
+        model: "Completes",
+        as: "Users",
+        unique: false
+      },
+      constraints: false,
       foreignKey: "Task_Id"
     });
     models.Task.belongsTo(models.List);
