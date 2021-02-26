@@ -92,4 +92,12 @@ module.exports = function(app) {
       }
     ).then(dbList => res.json(dbList));
   });
+
+  app.delete("/api/lists/:id", (req, res) => {
+    db.List.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbList => res.json(dbList));
+  });
 };
