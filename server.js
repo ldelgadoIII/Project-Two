@@ -18,6 +18,8 @@ app.set("view engine", "handlebars");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static("public"));
+
 // Requiring our routes
 app.use(require("./routes/html-routes"));
 require("./routes/api-routes.js")(app);
@@ -29,7 +31,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
