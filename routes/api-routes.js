@@ -51,15 +51,22 @@ module.exports = function(app) {
     }
   });
 
-  // Get route for retrieving all lists
+  // Get route for retrieving all lists and their associated tasks.
   app.get("/api/lists", (req, res) => {
     // Add sequelize code to find all lists, and return them to the user with res.json
     db.List.findAll({
       include: [{ model: db.Task }]
     }).then(dbList => res.json(dbList));
   });
+  // app.get("/api/lists", (req, res) => {
+  //   // Add sequelize code to find all lists, and return them to the user with res.json
+  //   const lists = db.List.findAll({
+  //     include: [db.Task]
+  //   });
+  //   res.json(lists);
+  // });
 
-  // Get route for retrieving a single list
+  // Get route for retrieving a single list and its associated tasks
   app.get("/api/lists/:id", (req, res) => {
     // Add sequelize code to find a single list where the id is equal to req.params.id,
     // return the result to the user with res.json
@@ -95,6 +102,7 @@ module.exports = function(app) {
     ).then(dbList => res.json(dbList));
   });
 
+  // Delete route for deleting a list
   app.delete("/api/lists/:id", (req, res) => {
     db.List.destroy({
       where: {
@@ -103,6 +111,7 @@ module.exports = function(app) {
     }).then(dbList => res.json(dbList));
   });
 
+  // Route for getting all the tasks for a list.
   app.get("/api/tasks", (req, res) => {
     const query = {};
     if (req.query.list_id) {
@@ -110,13 +119,13 @@ module.exports = function(app) {
     }
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
     db.Task.findAll({
       where: query,
       include: [db.List]
     }).then(dbTask => res.json(dbTask));
   });
 
+  // Route for creating a task.
   app.route("/api/tasks").post((req, res) => {
     db.List.findOne({
       where: {
@@ -132,5 +141,14 @@ module.exports = function(app) {
           res.json(task);
         });
     });
+  });
+
+  // Route for deleting a task
+  app.delete("/api/tasks/:id", (req, res) => {
+    db.Task.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbTask => res.json(dbTask));
   });
 };
