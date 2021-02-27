@@ -84,27 +84,27 @@ createTaskBtn.addEventListener("submit", event => {
 //   });
 // });
 
-// // DELETE TASK
-// const deleteTaskBtns = document.querySelectorAll(".remove-task");
+// DELETE TASK
+const deleteTaskBtns = document.querySelectorAll(".remove-task");
 
-// deleteTaskBtns.forEach(button => {
-//   button.addEventListener("click", e => {
-//     const id = e.target.getAttribute("data-id");
-//     console.log("Delete Task at ID: ", id);
+deleteTaskBtns.forEach(button => {
+  button.addEventListener("click", e => {
+    const id = e.target.getAttribute("data-id");
+    console.log("Delete Task at ID: ", id);
 
-//     fetch(`/api/tasks/${id}`, {
-//       method: "DELETE"
-//     }).then(res => {
-//       console.log(res);
-//       console.log(`Deleted Task ID: ${id}`);
+    fetch(`/api/tasks/${id}`, {
+      method: "DELETE"
+    }).then(res => {
+      console.log(res);
+      console.log(`Deleted Task ID: ${id}`);
 
-//       // Reload the page
-//       if (res.ok) {
-//         location.reload();
-//       }
-//     });
-//   });
-// });
+      // Reload the page
+      if (res.ok) {
+        location.reload();
+      }
+    });
+  });
+});
 
 // // UPDATE TASK COUNT
 // // TO DO: Add this section to student view
