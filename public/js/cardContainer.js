@@ -23,12 +23,3 @@ createTaskBtn.addEventListener("submit", event => {
     location.reload();
   });
 });
-
-// const btn = document.getElementById("submit");
-
-// btn.addEventListener("click", event => {
-//   event.preventDefault();
-//   const txt = document.getElementById("txt").value;
-//   console.log(txt);
-//   document.getElementById("txt").value = "";
-// });
