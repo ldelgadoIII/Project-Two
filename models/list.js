@@ -17,7 +17,9 @@ module.exports = function(sequelize, DataTypes) {
       constraints: false,
       foreignKey: "List_Id"
     });
-    models.List.hasMany(models.Task);
+    models.List.hasMany(models.Task, {
+      onDelete: "cascade"
+    });
   };
 
   return List;
