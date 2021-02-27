@@ -14,8 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  // eslint-disable-next-line prettier/prettier
-  Task.associate = (models) => {
+  Task.associate = models => {
     models.Task.belongsToMany(models.User, {
       through: {
         model: "Completes",
