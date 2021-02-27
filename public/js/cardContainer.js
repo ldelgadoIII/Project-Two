@@ -1,6 +1,36 @@
-const createTaskBtn = document.getElementById("create-task");
+// CREATE LIST
+const createListBtn = document.getElementById("create-list");
+
+createListBtn.addEventListener("submit", event => {
+  event.preventDefault();
+
+  const newList = {
+    title: document.getElementById("list-item").value.trim()
+  };
+
+  console.log(newList);
+
+  fetch("/api/lists", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newList)
+  }).then(() => {
+    // Empty the form
+    document.getElementById("list-item").value = "";
+
+    console.log("New task created");
+
+    // Reloads the page to see added task
+    location.reload();
+  });
+});
 
 // CREATE TASK
+const createTaskBtn = document.getElementById("create-task");
+
 createTaskBtn.addEventListener("submit", event => {
   event.preventDefault();
 
@@ -10,8 +40,7 @@ createTaskBtn.addEventListener("submit", event => {
 
   console.log(newTask);
 
-  // TO DO: Change lists to tasks later
-  fetch("/api/lists", {
+  fetch("/api/tasks", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -21,7 +50,9 @@ createTaskBtn.addEventListener("submit", event => {
   }).then(() => {
     // Empty the form
     document.getElementById("task-item").value = "";
+
     console.log("New task created");
+
     // Reloads the page to see added task
     location.reload();
   });
