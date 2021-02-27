@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/cardContainer.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
      <title>Admin Task</title>
 </head>
@@ -77,12 +76,23 @@
       <!-- TEXT INPUT AREA -->
       <div class="row">
         <form id="create-task">
+<<<<<<< HEAD
+=======
+          <!-- <div class="input-field col s9">
+            <label for="text-area">New List</label>
+            <textarea class="materialize-textarea #ffffff white" type="text" id="list-item" name="newList" ></textarea>
+            <button class="btn waves-effect #4a148c purple darken-4" type="submit">Add List
+            </button>
+          </div> -->
+>>>>>>> main
           <div class="input-field col s9">
              <label for="text-area">New Task</label>
             <textarea class="materialize-textarea #ffffff white" type="text" id="task-item" name="newTask" ></textarea>
             <button class="btn waves-effect #ffa000 amber darken-2" type="submit">Add Task
             </button>
-            </div>
+            <textarea id="task">0</textarea>
+            <button class="change-count" data-id="1">Complete</button>
+          </div>
             <!-- SHARE LINK -->
             <div class="col s9">
               <ul class="collection">
@@ -90,7 +100,7 @@
                   <a class="#f44336 red-text" href="#!">Share Link</a>
                 </li>
               </ul>  
-           </div>
+          </div>
         </form>
       </div>
 
@@ -101,7 +111,7 @@
  
         
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
+<script src="./js/cardContainer.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
              

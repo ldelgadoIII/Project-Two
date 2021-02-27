@@ -143,6 +143,25 @@ module.exports = function(app) {
     });
   });
 
+  // Update route to update an existing list
+  app.put("/api/tasks/:id", (req, res) => {
+    // Add code here to update a list using the values in req.body, where the id is equal to
+    // req.body.id and return the result to the user using res.json
+    let completedCount = parseInt(req.body.count);
+    completedCount++;
+
+    db.Task.update(
+      {
+        count: completedCount
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    ).then(dbTask => res.json(dbTask));
+  });
+
   // Route for deleting a task
   app.delete("/api/tasks/:id", (req, res) => {
     db.Task.destroy({
