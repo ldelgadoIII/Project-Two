@@ -9,7 +9,7 @@
      <title>Admin Task</title>
 </head>
 <body>
-  <nav class="#4a148c purple darken-4" role="navigation">
+  <nav class="#311b92 deep-purple darken-4" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
       <!-- <ul class="right hide-on-med-and-down">
         <li><a href="#">Navbar Link</a></li>
@@ -22,6 +22,25 @@
     </div>
   </nav>
   <br>
+  <!-- CREATE LIST -->
+  <div class="container">
+    <div class="container #f3e5f5 purple lighten-5">
+      <div class="row">
+        <form id="create-list">
+          <div class="input-field col s9">
+            <label for="text-area">New List</label>
+            <textarea class="materialize-textarea #ffffff white" type="text" id="list-item" name="newList" ></textarea>
+          </div>
+          <div class="input-field col s3">
+            <button class="btn waves-effect #ffa000 amber darken-2" type="submit">Add List
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div></div>
   <!-- The Task Card -->
   <div class="container">
     <div class="container #f3e5f5 purple lighten-5">
@@ -30,29 +49,13 @@
         <!-- <div class="col s12">This div is 12-columns wide on all screen sizes</div> -->
         <div class="col s6"><h5 class="left-align">List Title</h5></div>
         <br>
-        <div class="col s6"><button class="btn waves-effect #4a148c purple darken-4" type="submit" name="action">Delete
-          <i class="material-icons right">List</i>
+        <div class="col s6"><button class="btn waves-effect #ffa000 amber darken-2" type="submit" name="action">Delete
+          <i class="material-icons right"></i>
         </button></div>
       </div>
        <!-- UL LIST ITEM -->
-      <div class="row">
-        <div class="col s9">
-          <ul class="collection">
-            <li id="list-input" class="collection-item">
-              <p>Making a list
-              </p> 
-            </li>
-          </ul>  
-       </div>
-       <div class="row">
-        <div class="col">
-          <a id="list-counter" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">0</i></a>
-        </div>
-        <div class="col">
-          <a id="delete-list" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">-</i></a>
-        </div>
-      </div>
-      </div>
+     
+      <!-- TASK LIST -->
       <div class="row">
         <div class="col s9">
           <ul class="collection">
@@ -73,22 +76,15 @@
       </div>
       <!-- TEXT INPUT AREA -->
       <div class="row">
-        <form id="create-list">
+        <form id="create-task">
           <div class="input-field col s9">
-          <label for="text-area">New List</label>
-          <textarea class="materialize-textarea #ffffff white" type="text" id="list-item" name="newList" ></textarea>
-          <button class="btn waves-effect #4a148c purple darken-4" type="submit">Add List
-          </button>
-          </div>
-          <div class="input-field col s9">
-            <label for="text-area">New Task</label>
+             <label for="text-area">New Task</label>
             <textarea class="materialize-textarea #ffffff white" type="text" id="task-item" name="newTask" ></textarea>
-            <button class="btn waves-effect #4a148c purple darken-4" type="submit">Add Task
+            <button class="btn waves-effect #ffa000 amber darken-2" type="submit">Add Task
             </button>
             </div>
             <!-- SHARE LINK -->
-          <div class="row">
-              <div class="col s9">
+            <div class="col s9">
               <ul class="collection">
                 <li class="collection-item">
                   <a class="#f44336 red-text" href="#!">Share Link</a>
