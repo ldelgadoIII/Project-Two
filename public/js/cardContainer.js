@@ -1,32 +1,32 @@
 // CREATE LIST
-const createListBtn = document.getElementById("create-list");
+// const createListBtn = document.getElementById("create-list");
 
-createListBtn.addEventListener("submit", event => {
-  event.preventDefault();
+// createListBtn.addEventListener("submit", event => {
+//   event.preventDefault();
 
-  const newList = {
-    title: document.getElementById("list-item").value.trim()
-  };
+//   const newList = {
+//     title: document.getElementById("list-item").value.trim()
+//   };
 
-  console.log(newList);
+//   console.log(newList);
 
-  fetch("/api/lists", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newList)
-  }).then(() => {
-    // Empty the form
-    document.getElementById("list-item").value = "";
+//   fetch("/api/lists", {
+//     method: "POST",
+//     headers: {
+//       Accept: "application/json",
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(newList)
+//   }).then(() => {
+//     // Empty the form
+//     document.getElementById("list-item").value = "";
 
-    console.log("New task created");
+//     console.log("New task created");
 
-    // Reloads the page to see added task
-    location.reload();
-  });
-});
+//     // Reloads the page to see added task
+//     location.reload();
+//   });
+// });
 
 // CREATE TASK
 const createTaskBtn = document.getElementById("create-task");
@@ -106,44 +106,46 @@ deleteTaskBtns.forEach(button => {
   });
 });
 
-// // UPDATE TASK COUNT
-// // TO DO: Add this section to student view
-// // Select button that increments counter
-// const increaseCountBtns = document.querySelectorAll(".change-status");
+// UPDATE TASK COUNT
+// TO DO: Add this section to student view
+// Select button that increments counter
+const increaseCountBtns = document.querySelectorAll(".change-count");
 
-// // Set up the event listener for the create button
-// if (increaseCountBtns) {
-//   increaseCountBtns.forEach(button => {
-//     button.addEventListener("click", e => {
-//       console.log("Count Btn Clicked");
-//       // Grabs the id of the element that goes by the name, "id"
-//       const id = e.target.getAttribute("data-id");
-//       // TO DO: Grab current count
-//       // TO DO: Increment count
-//       const newStatus = e.target.getAttribute("data-status");
+increaseCountBtns.forEach(button => {
+  button.addEventListener("click", e => {
+    // Grabs the id of the btn clicked;
+    const id = e.target.getAttribute("data-id");
+    console.log(`Count Btn Clicked with data-id: ${id}`);
 
-//       // Return new count as an object
-//       const newState = {
-//         devour: newStatus
-//       };
+    // Grab current count
+    let newCount = document.getElementById("task").value;
+    console.log("Current count of Task: ", newCount);
 
-//       // TO DO: Change route
-//       fetch(`/api/tasks/${id}`, {
-//         method: "PUT",
-//         headers: {
-//           Accept: "application/json",
-//           "Content-Type": "application/json"
-//         },
+    // Increment count
+    Number(newCount);
+    newCount++;
+    console.log("This is the newCount: ", newCount);
 
-//         body: JSON.stringify(newState)
-//       }).then(response => {
-//         if (response.ok) {
-//           console.log(`changed status to: ${newStatus}`);
-//           location.reload("/");
-//         } else {
-//           alert("something went wrong!");
-//         }
-//       });
-//     });
-//   });
-// }
+    // Return new count as an object
+    const updateCount = {
+      count: newCount
+    };
+    console.log("Updated count object", updateCount);
+
+    fetch(`/api/tasks/${id}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify(updateCount)
+    }).then(response => {
+      if (response.ok) {
+        location.reload();
+      } else {
+        alert("Count was not changed.");
+      }
+    });
+  });
+});
