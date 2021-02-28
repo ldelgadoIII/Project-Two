@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  {{!-- <script src="../../public/js/index.js"></script>
+  <script src="../../public/js/student-view.js"></script> --}}
   <title>Task Ya Later!</title>
 </head>
 <body>
   {{{ body }}}
-<script src="../../public/js/index.js"></script>
-<script src="../../public/js/student-view.js"></script>
+  {{#each js}}
+    <script src="/js/{{this}}"></script>
+  {{/each}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
