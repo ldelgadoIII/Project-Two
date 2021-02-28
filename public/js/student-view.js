@@ -16,7 +16,7 @@ increaseCountBtns.forEach(button => {
     // Grabs the id of the btn clicked;
     const id = e.target.getAttribute("data-id");
     console.log(`Count Btn Clicked with data-id: ${id}`);
-        
+
     // Increment count
     count++;
     currentCount.textContent = "Current Task Count: " + count;
@@ -38,7 +38,7 @@ increaseCountBtns.forEach(button => {
       body: JSON.stringify(updateCount)
     }).then(response => {
       if (response.ok) {
-        console.log("Count Increment Successful!")
+        console.log("Count Increment Successful!");
         // location.reload();
       } else {
         alert("Count was not changed.");
