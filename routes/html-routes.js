@@ -13,12 +13,11 @@ Router.get("/", async (req, res) => {
     // );
     const tasks = list.dataValues.Tasks;
     return {
+      id: list.dataValues.id,
       title: list.dataValues.title,
       tasks: tasks
     };
   });
-
-  console.log(lists);
 
   res.render("index", {
     lists: lists
