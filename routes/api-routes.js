@@ -147,8 +147,8 @@ module.exports = function(app) {
   app.put("/api/tasks/:id", (req, res) => {
     // Add code here to update a list using the values in req.body, where the id is equal to
     // req.body.id and return the result to the user using res.json
-    let completedCount = parseInt(req.body.count);
-    completedCount++;
+    const completedCount = parseInt(req.body.count);
+    // completedCount++;
 
     db.Task.update(
       {

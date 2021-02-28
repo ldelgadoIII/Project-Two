@@ -41,7 +41,9 @@
         </div>
       
               <!-- DELETE LIST BUTTON -->
-        <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4" type="submit" name="action">Delete
+        {{!-- TO DO: Change data-id to be assigned by list's id --}}
+        <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4 remove-list" name="action" data-id="1">
+          Delete
           <i class="material-icons right"></i>
         </button></div>
       </div>
@@ -62,7 +64,10 @@
           <!-- COUNTER & DELETE BUTTON -->
           <!-- <div class="col s1 #00c853 green accent-4"><h5 class="white-text">0</h5></div> -->
         </div>
-        <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4" type="submit" name="action">Delete
+        {{!-- DELETE TASK BTN --}}
+        {{!-- TO DO: Change data-id to be assigned by task id --}}
+        <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4 remove-task" name="action" data-id="4">
+          Delete
           <i class="material-icons right"></i>
         </button></div>
       </div>
@@ -181,7 +186,8 @@ deleteListBtns.forEach(button => {
 
       // Reload the page
       if (res.ok) {
-        location.reload();
+        console.log("List Deleted!")
+        // location.reload();
       }
     });
   });
@@ -203,7 +209,8 @@ deleteTaskBtns.forEach(button => {
 
       // Reload the page
       if (res.ok) {
-        location.reload();
+        console.log("Task Deleted!")
+        // location.reload();
       }
     });
   });

@@ -78,6 +78,7 @@ deleteListBtns.forEach(button => {
 
       // Reload the page
       if (res.ok) {
+        console.log("List Deleted!");
         location.reload();
       }
     });
