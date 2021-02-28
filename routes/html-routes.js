@@ -8,9 +8,10 @@ Router.get("/", async (req, res) => {
     include: [db.Task]
   });
   const lists = data.map(list => {
-    const tasks = list.dataValues.Tasks.map(
-      task => task.dataValues.description
-    );
+    // const tasks = list.dataValues.Tasks.map(
+    //   task => task.dataValues.description
+    // );
+    const tasks = list.dataValues.Tasks;
     return {
       title: list.dataValues.title,
       tasks: tasks
