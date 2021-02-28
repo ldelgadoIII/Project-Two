@@ -36,12 +36,13 @@
   <div></div>
   <!-- The Task Card -->
   <div class="container">
+    {{#each lists }}
     <div class="container #f3e5f5 purple lighten-5">
       <!-- Page Content goes here -->
       <div class="row">
        <!-- LIST TITLE -->
         <br>
-        <div class="col s6"><h5 class="left-align">List Title</h5></div>
+        <div class="col s6"><h5 class="left-align">{{ title }}</h5></div>
         <!-- LIST TASK COUNTER -->
         <div class="col s1">
           <h5 class="#388e3c green darken-2">
@@ -76,7 +77,7 @@
         </button></div>
       </div>
       </div>
-      <!-- TEXT INPUT AREA -->
+      <!-- TEXT INPUT AREA -->      
       <div class="row">
         <form id="create-task">
         
@@ -99,6 +100,7 @@
             </ul>  
         </div>
       </div>
+{{/each }}
 <h1>List Dashboard</h1>
 <h2>Here are the avaiable lists:</h2>
 <ul>
@@ -108,7 +110,7 @@
 </ul>
 
 
-<script src="../public/js/index.js"></script>
+{{!-- <script src="../public/js/index.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
