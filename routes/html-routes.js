@@ -15,10 +15,6 @@ Router.get("/", async (req, res) => {
 
 Router.get("/students", async (req, res) => res.render("student-view"));
 
-Router.get("/home", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/card_container.html"));
-});
-
 Router.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/login.html"));
 });
