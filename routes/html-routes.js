@@ -4,8 +4,19 @@ const db = require("../models");
 
 // routes
 Router.get("/", async (req, res) => {
-  const data = await db.List.findAll({});
-  const lists = data.map(list => list.dataValues);
+  const data = await db.List.findAll({
+    include: [db.Task]
+  });
+  const lists = data.map(list => {
+    const tasks = list.dataValues.Tasks.map(
+      task => task.dataValues.description
+    );
+    return {
+      title: list.dataValues.title,
+      tasks: tasks
+    };
+  });
+
   console.log(lists);
 
   res.render("index", {
