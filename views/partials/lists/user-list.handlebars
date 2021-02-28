@@ -1,5 +1,5 @@
 {{!-- Display every list with a create task btn and a delete btn that have a data-id value that corresponds to the list's id --}}
-<li>
+{{!-- <li>
 	{{title}}
 	<button data-id="{{id}}">
 		Add Task
@@ -7,10 +7,9 @@
 	<button class="remove-list" data-id="{{id}}">
 		Delete List
 	</button>
-</li>
+</li> --}}
 
-{{#each lists }}
-<div class="container #f3e5f5 purple lighten-5">
+    <div class="container #f3e5f5 purple lighten-5">
       <!-- Page Content goes here -->
       <div class="row">
        <!-- LIST TITLE -->
@@ -18,14 +17,12 @@
         <div class="col s6"><h5 class="left-align">{{ title }}</h5></div>
         <!-- LIST TASK COUNTER -->
         <div class="col s1">
-          <h5 class="#388e3c green darken-2">
-            <span class="counter line-height:0px #00c853 white-text">0</span>
-           </h5> 
+          
         </div>
       
               <!-- DELETE LIST BUTTON -->
         {{!-- TO DO: Change data-id to be assigned by list's id --}}
-        <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4 remove-list" name="action" data-id="1">
+        <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4 remove-list" name="action" data-id="{{ id }}">
           Delete
           <i class="material-icons right"></i>
         </button></div>
@@ -78,4 +75,3 @@
             </ul>  
         </div>
       </div>
-{{/each }}
