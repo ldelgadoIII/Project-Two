@@ -1,32 +1,32 @@
 // CREATE LIST
-// const createListBtn = document.getElementById("create-list");
+const createListBtn = document.getElementById("create-list");
 
-// createListBtn.addEventListener("submit", event => {
-//   event.preventDefault();
+createListBtn.addEventListener("submit", event => {
+  event.preventDefault();
 
-//   const newList = {
-//     title: document.getElementById("list-item").value.trim()
-//   };
+  const newList = {
+    title: document.getElementById("list-item").value.trim()
+  };
 
-//   console.log(newList);
+  console.log(newList);
 
-//   fetch("/api/lists", {
-//     method: "POST",
-//     headers: {
-//       Accept: "application/json",
-//       "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify(newList)
-//   }).then(() => {
-//     // Empty the form
-//     document.getElementById("list-item").value = "";
+  fetch("/api/lists", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newList)
+  }).then(() => {
+    // Empty the form
+    document.getElementById("list-item").value = "";
 
-//     console.log("New task created");
+    console.log("New task created");
 
-//     // Reloads the page to see added task
-//     location.reload();
-//   });
-// });
+    // Reloads the page to see added task
+    location.reload();
+  });
+});
 
 // CREATE TASK
 const createTaskBtn = document.getElementById("create-task");
@@ -58,7 +58,7 @@ createTaskBtn.addEventListener("submit", event => {
     console.log("New task created");
 
     // Reloads the page to see added task
-    location.reload();
+    // location.reload();
   });
 });
 
