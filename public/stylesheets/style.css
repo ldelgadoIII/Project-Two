@@ -14,3 +14,7 @@ div.row {
 .no-shadows {
   box-shadow: none!important;
 }
+
+.brand-logo {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}

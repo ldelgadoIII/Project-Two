@@ -1,10 +1,13 @@
-<nav class="#4a148c purple darken-4" role="navigation">
+  <nav class="#4a148c purple darken-4" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
      
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons"></i></a>
     </div>
   </nav>
   <br>
+  <main class="content">
+    <script src="/public/images/admin_background_still_gradient-color.jpg"> document.body.style.backgroundAttachment = "fixed"</script>
+  </main>
   <!-- CREATE LIST -->
   <div class="container">
     <div class="container #f3e5f5 purple lighten-5">
@@ -26,28 +29,18 @@
   <div></div>
   <!-- The Task Card -->
   <div class="container">
-    {{#each lists }}
     <div class="container #f3e5f5 purple lighten-5">
       <!-- Page Content goes here -->
       <div class="row">
-       <!-- LIST TITLE -->
+        <!-- <div class="col s12">This div is 12-columns wide on all screen sizes</div> -->
+        <div class="col s6"><h5 class="left-align">List Title</h5></div>
         <br>
-        <div class="col s6"><h5 class="left-align">{{ title }}</h5></div>
-        <!-- LIST TASK COUNTER -->
-        <div class="col s1">
-          <h5 class="#388e3c green darken-2">
-            <span class="counter line-height:0px #00c853 white-text">0</span>
-           </h5> 
-        </div>
-      
-              <!-- DELETE LIST BUTTON -->
-        {{!-- TO DO: Change data-id to be assigned by list's id --}}
-        <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4 remove-list" name="action" data-id="1">
-          Delete
+        <div class="col s6"><button class="btn waves-effect #4a148c purple darken-4" type="submit" name="action">Delete
           <i class="material-icons right"></i>
         </button></div>
       </div>
-          
+       <!-- UL LIST ITEM -->
+     
       <!-- TASK LIST -->
       <div class="row">
         <div class="col s9">
@@ -60,19 +53,14 @@
        </div>
        <div class="row">
         <div class="col">
-          <br>
-          <!-- COUNTER & DELETE BUTTON -->
-          <!-- <div class="col s1 #00c853 green accent-4"><h5 class="white-text">0</h5></div> -->
+          <a id="task-counter" class="btn-floating btn-large waves-effect waves-#43a047 green darken-1"><i class="material-icons">0</i></a>
         </div>
-        {{!-- DELETE TASK BTN --}}
-        {{!-- TO DO: Change data-id to be assigned by task id --}}
-        <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4 remove-task" name="action" data-id="4">
-          Delete
-          <i class="material-icons right"></i>
-        </button></div>
+        <div class="col">
+          <a id="delete-task" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">-</i></a>
+        </div>
       </div>
       </div>
-      <!-- TEXT INPUT AREA -->      
+      <!-- TEXT INPUT AREA -->
       <div class="row">
         <form id="create-task">
         
@@ -95,125 +83,11 @@
             </ul>  
         </div>
       </div>
-{{/each }}
+
 <h1>List Dashboard</h1>
-<h2>Here are the available lists:</h2>
+<h2>Here are the avaiable lists:</h2>
 <ul>
-  {{#each lists}}
+  {{#each lists }}
     <li><h3>{{ title }}</h3></li>
   {{/each }}
 </ul>
-
-
-<script>
-// CREATE LIST
-const createListBtn = document.getElementById("create-list");
-
-createListBtn.addEventListener("submit", event => {
-  event.preventDefault();
-
-  const newList = {
-    title: document.getElementById("list-item").value.trim()
-  };
-
-  console.log(newList);
-
-  fetch("/api/lists", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newList)
-  }).then(() => {
-    // Empty the form
-    document.getElementById("list-item").value = "";
-
-    console.log("New task created");
-
-    // Reloads the page to see added task
-    location.reload();
-  });
-});
-
-// CREATE TASK
-const createTaskBtn = document.getElementById("create-task");
-
-createTaskBtn.addEventListener("submit", event => {
-  event.preventDefault();
-
-  const newTask = {
-    description: document.getElementById("task-item").value.trim(),
-    // TO DO: Replace "1" with - event.target.getAttribute("data-id");
-    // data-id needs to be assigned to submit button
-    // data-id value will come from an #each that grabs the value of the list
-    ListId: 1
-  };
-
-  console.log(newTask);
-
-  fetch("/api/tasks", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newTask)
-  }).then(() => {
-    // Empty the form
-    document.getElementById("task-item").value = "";
-
-    console.log("New task created");
-
-    // Reloads the page to see added task
-    // location.reload();
-  });
-});
-
-// DELETE LIST
-const deleteListBtns = document.querySelectorAll(".remove-list");
-
-deleteListBtns.forEach(button => {
-  button.addEventListener("click", e => {
-    const id = e.target.getAttribute("data-id");
-    console.log("Delete List at ID: ", id);
-
-    fetch(`/api/lists/${id}`, {
-      method: "DELETE"
-    }).then(res => {
-      console.log(res);
-      console.log(`Deleted List ID: ${id}`);
-
-      // Reload the page
-      if (res.ok) {
-        console.log("List Deleted!")
-        // location.reload();
-      }
-    });
-  });
-});
-
-// DELETE TASK
-const deleteTaskBtns = document.querySelectorAll(".remove-task");
-
-deleteTaskBtns.forEach(button => {
-  button.addEventListener("click", e => {
-    const id = e.target.getAttribute("data-id");
-    console.log("Delete Task at ID: ", id);
-
-    fetch(`/api/tasks/${id}`, {
-      method: "DELETE"
-    }).then(res => {
-      console.log(res);
-      console.log(`Deleted Task ID: ${id}`);
-
-      // Reload the page
-      if (res.ok) {
-        console.log("Task Deleted!")
-        // location.reload();
-      }
-    });
-  });
-});
-
-</script>
