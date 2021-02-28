@@ -89,7 +89,6 @@
             </ul>  
         </div>
       </div>
-
 <h1>List Dashboard</h1>
 <h2>Here are the avaiable lists:</h2>
 <ul>
@@ -97,3 +96,69 @@
     <li><h3>{{ title }}</h3></li>
   {{/each }}
 </ul>
+
+<script>
+  // CREATE LIST
+const createListBtn = document.getElementById("create-list");
+
+createListBtn.addEventListener("submit", event => {
+  event.preventDefault();
+
+  const newList = {
+    title: document.getElementById("list-item").value.trim()
+  };
+
+  console.log(newList);
+
+  fetch("/api/lists", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newList)
+  }).then(() => {
+    // Empty the form
+    document.getElementById("list-item").value = "";
+
+    console.log("New task created");
+
+    // Reloads the page to see added task
+    // location.reload();
+  });
+});
+
+// CREATE TASK
+const createTaskBtn = document.getElementById("create-task");
+
+createTaskBtn.addEventListener("submit", event => {
+  event.preventDefault();
+
+  const newTask = {
+    description: document.getElementById("task-item").value.trim(),
+    // TO DO: Replace "1" with - event.target.getAttribute("data-id");
+    // data-id needs to be assigned to submit button
+    // data-id value will come from an #each that grabs the value of the list
+    ListId: 1
+  };
+
+  console.log(newTask);
+
+  fetch("/api/tasks", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newTask)
+  }).then(() => {
+    // Empty the form
+    document.getElementById("task-item").value = "";
+
+    console.log("New task created");
+
+    // Reloads the page to see added task
+    // location.reload();
+  });
+});
+</script>
