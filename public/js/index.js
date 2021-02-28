@@ -78,8 +78,8 @@ deleteListBtns.forEach(button => {
 
       // Reload the page
       if (res.ok) {
-        console.log("List Deleted!");
-        location.reload();
+        console.log("List Deleted!")
+        // location.reload();
       }
     });
   });
@@ -101,7 +101,8 @@ deleteTaskBtns.forEach(button => {
 
       // Reload the page
       if (res.ok) {
-        location.reload();
+        console.log("Task Deleted!")
+        // location.reload();
       }
     });
   });
