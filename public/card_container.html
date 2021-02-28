@@ -8,15 +8,9 @@
      <title>Admin Task</title>
 </head>
 <body>
-  <nav class="#311b92 deep-purple darken-4" role="navigation">
+  <nav class="#4a148c purple darken-4" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
-      <!-- <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul> -->
-<!-- 
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul> -->
+     
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons"></i></a>
     </div>
   </nav>
@@ -31,7 +25,7 @@
             <textarea class="materialize-textarea #ffffff white" type="text" id="list-item" name="newList" ></textarea>
           </div>
           <div class="input-field col s3">
-            <button class="btn waves-effect #ffa000 amber darken-2" type="submit">Add List
+            <button class="btn waves-effect #4a148c purple darken-4" type="submit">Add List
             </button>
           </div>
         </form>
@@ -48,7 +42,7 @@
         <!-- <div class="col s12">This div is 12-columns wide on all screen sizes</div> -->
         <div class="col s6"><h5 class="left-align">List Title</h5></div>
         <br>
-        <div class="col s6"><button class="btn waves-effect #ffa000 amber darken-2" type="submit" name="action">Delete
+        <div class="col s6"><button class="btn waves-effect #4a148c purple darken-4" type="submit" name="action">Delete
           <i class="material-icons right"></i>
         </button></div>
       </div>
@@ -66,7 +60,7 @@
        </div>
        <div class="row">
         <div class="col">
-          <a id="task-counter" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">0</i></a>
+          <a id="task-counter" class="btn-floating btn-large waves-effect waves-#43a047 green darken-1"><i class="material-icons">0</i></a>
         </div>
         <div class="col">
           <a id="delete-task" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">-</i></a>
@@ -76,33 +70,26 @@
       <!-- TEXT INPUT AREA -->
       <div class="row">
         <form id="create-task">
-          <!-- <div class="input-field col s9">
-            <label for="text-area">New List</label>
-            <textarea class="materialize-textarea #ffffff white" type="text" id="list-item" name="newList" ></textarea>
-            <button class="btn waves-effect #4a148c purple darken-4" type="submit">Add List
-            </button>
-          </div> -->
+        
           <div class="input-field col s9">
              <label for="text-area">New Task</label>
             <textarea class="materialize-textarea #ffffff white" type="text" id="task-item" name="newTask" ></textarea>
-            <button class="btn waves-effect #ffa000 amber darken-2" type="submit">Add Task
+            <button class="btn waves-effect #4a148c purple darken-4" type="submit">Add Task
             </button>
-            <textarea id="task">0</textarea>
-            <button class="change-count" data-id="1">Complete</button>
-          </div>
-            <!-- SHARE LINK -->
-            <div class="col s9">
-              <ul class="collection">
-                <li class="collection-item">
-                  <a class="#f44336 red-text" href="#!">Share Link</a>
-                </li>
-              </ul>  
           </div>
         </form>
       </div>
-
-   
-  </div>
+     </div>
+       <!-- SHARE LINK -->
+       <div class="container">
+        <div class="col s9 ">
+            <ul class="collection">
+              <li class="collection-item #4a148c purple darken-4">
+                <a class="white-text" href="#!">Share Link</a>
+              </li>
+            </ul>  
+        </div>
+      </div>
  
   
  

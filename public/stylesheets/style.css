@@ -6,3 +6,7 @@ form.login {
 .input-field label {
   color: rgba(254, 254, 254, 0.948);
 }
+
+div.row {
+  margin-bottom: 0px;
+}
