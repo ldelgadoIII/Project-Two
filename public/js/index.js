@@ -101,7 +101,7 @@ deleteTaskBtns.forEach(button => {
 
       // Reload the page
       if (res.ok) {
-        console.log("Task Deleted!")
+        console.log("Task Deleted!");
         // location.reload();
       }
     });
