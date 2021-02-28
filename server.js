@@ -13,13 +13,13 @@ const db = require("./models");
 const app = express();
 const exphbs = require("express-handlebars");
 
-app.use(express.static(path.join(__dirname, "/public")));
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Requiring our routes
 app.use(require("./routes/html-routes"));
