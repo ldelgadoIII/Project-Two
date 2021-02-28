@@ -2,9 +2,11 @@
 <h2>Here are the available lists:</h2>
 <ul>
   {{#each lists}}
-    <li><h3>{{ title }}</h3>
-    
-      {{> tasks/user-task id=id}}
-    
+    <li><h3>{{ title }}</h3></li>
+    <ul>
+      {{#each tasks as |task i|}}
+          {{> tasks/user-task task}}
+      {{/each}}
+    </ul>
   {{/each}}
 </ul>
