@@ -1,4 +1,12 @@
 $(document).ready(() => {
+  // This file just does a GET request to figure out which user is logged in
+  // and updates the HTML on the page
+  $.get("/api/user_data").then(data => {
+    $(".member-name").text(data.email);
+  });
+});
+
+$(document).ready(() => {
   // Getting references to our form and inputs
   const loginForm = $("form.login");
   const emailInput = $("input#email-input");
