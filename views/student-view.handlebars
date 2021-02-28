@@ -1,34 +1,80 @@
 <nav class="#4a148c purple darken-4" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
-     
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons"></i></a>
     </div>
   </nav>
   <br>
   
-  <!-- CREATE LIST -->
-   <div class="container">
-    <div class="container #f3e5f5 purple lighten-5">
-      <div class="row">
-        <form id="task-list">
-          <div class="col s6">
-            <p id="create-list" class="flow-text">Created List</p>
+<!-- CREATE LIST -->
+<div class="container">
+  <div class="container #f3e5f5 purple lighten-5">
+    <div class="row">
+      <form id="task-list">
+        <div class="col s6">
+          <p id="create-list" class="flow-text">Created List</p>
+        </div>
+        <div class="row">
+          <div class="col s9">
+            <ul class="collection">
+              <li id="task-input" class="collection-item">
+                <p>#1 First Task to complete
+                </p> 
+              </li> 
+            </ul>  
           </div>
-          <div class="row">
-            <div class="col s9">
-              <ul class="collection">
-                <li id="task-input" class="collection-item">
-                  <p>#1 First Task to complete
-                  </p> 
-                </li> 
-              </ul>  
-           </div>
-           <br>
-          <div class="input-field col s3">
-            <button class="btn waves-effect #4a148c purple darken-4" type="submit">Complete
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+         <br>
+        <div class="input-field col s3">
+           <button class="btn waves-effect #4a148c purple darken-4" type="submit">Complete
+          </button>
+        </div>
+       </form>
+     </div>
   </div>
+ </div>
+
+ <script>
+// UPDATE TASK COUNT
+// Select button that increments counter
+const increaseCountBtns = document.querySelectorAll(".change-count");
+
+increaseCountBtns.forEach(button => {
+  button.addEventListener("click", e => {
+    // Grabs the id of the btn clicked;
+    const id = e.target.getAttribute("data-id");
+    console.log(`Count Btn Clicked with data-id: ${id}`);
+
+    // Grab current count
+    let newCount = document.getElementById("task").value;
+    console.log("Current count of Task: ", newCount);
+
+    // Increment count
+    Number(newCount);
+    newCount++;
+    console.log("This is the newCount: ", newCount);
+
+    // Return new count as an object
+    const updateCount = {
+      count: newCount
+    };
+    console.log("Updated count object", updateCount);
+
+    fetch(`/api/tasks/${id}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify(updateCount)
+    }).then(response => {
+      if (response.ok) {
+        location.reload();
+      } else {
+        alert("Count was not changed.");
+      }
+    });
+  });
+});
+
+
+ </script>
