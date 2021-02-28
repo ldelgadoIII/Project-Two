@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <title>Task Ya Later!</title>
-</head>
-<body>
-
 <nav class="#4a148c purple darken-4" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons"></i></a>
@@ -42,8 +32,49 @@
   </div>
  </div>
 
-<script src="../public/js/student-view.js"></script>
+ <script>
+// UPDATE TASK COUNT
+// Select button that increments counter
+const increaseCountBtns = document.querySelectorAll(".change-count");
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-</html>
+increaseCountBtns.forEach(button => {
+  button.addEventListener("click", e => {
+    // Grabs the id of the btn clicked;
+    const id = e.target.getAttribute("data-id");
+    console.log(`Count Btn Clicked with data-id: ${id}`);
+
+    // Grab current count
+    let newCount = document.getElementById("task").value;
+    console.log("Current count of Task: ", newCount);
+
+    // Increment count
+    Number(newCount);
+    newCount++;
+    console.log("This is the newCount: ", newCount);
+
+    // Return new count as an object
+    const updateCount = {
+      count: newCount
+    };
+    console.log("Updated count object", updateCount);
+
+    fetch(`/api/tasks/${id}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify(updateCount)
+    }).then(response => {
+      if (response.ok) {
+        location.reload();
+      } else {
+        alert("Count was not changed.");
+      }
+    });
+  });
+});
+
+
+ </script>
