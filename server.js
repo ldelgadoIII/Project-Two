@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const session = require("express-session");
+const path = require("path");
 const passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
@@ -18,7 +19,7 @@ app.set("view engine", "handlebars");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Requiring our routes
 app.use(require("./routes/html-routes"));

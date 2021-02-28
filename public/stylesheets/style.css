@@ -10,3 +10,7 @@ form.login {
 div.row {
   margin-bottom: 0px;
 }
+
+.no-shadows {
+  box-shadow: none!important;
+}
