@@ -1,7 +1,10 @@
 <h1>List Dashboard</h1>
-<h2>Here are the avaiable lists:</h2>
+<h2>Here are the available lists:</h2>
 <ul>
-  {{#each lists }}
-    <li><h3>{{ title }}</h3></li>
-  {{/each }}
+  {{#each lists}}
+    <li><h3>{{ title }}</h3>
+    
+      {{> tasks/user-task id=id}}
+    
+  {{/each}}
 </ul>
