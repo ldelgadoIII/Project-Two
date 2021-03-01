@@ -19,6 +19,22 @@ div.row {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
+/* NAV BAR */
+#container {
+  padding-left: 300px;
+}
+
+#content {
+  padding: 20px;
+}
+
+@media only screen and (max-width : 992px) {
+  #container {
+    padding-left: 0px;
+  }
+}
+
+/* BACKGROUND IMAGE */
 main.content-login { 
   background: url(../images/background_still_gradient-color.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -41,17 +57,24 @@ main.content {
   width: 100vw;
 
 }
-
-main.content-student {
+main.content-student { 
   background: url(../images/user_background_still_gradient-color.jpg) no-repeat center center fixed; 
+  /* background: repeat-y url(../images/admin_background_still_gradient-color.jpg); */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /* height: 100vh; */
+  height: 100vh;
   width: 100vw;
+
 }
 
 .col-md-6 {
   background-color: whitesmoke;
+}
+
+.square {
+  height: 35px;
+  width: 35px;
+  background-color: #00695c;
 }
