@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-unused-vars
+const socket = io();
+
 // UPDATE TASK COUNT
 // TO DO: Get data-count value of task
 // TO DO: Increment count
