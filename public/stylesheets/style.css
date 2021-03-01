@@ -21,16 +21,22 @@ div.row {
 
 
 main.content { 
-  background: url(/public/images/background_still_gradient-color.jpg) no-repeat center center fixed; 
+  background: url(../images/admin_background_still_gradient-color.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
-  width: 100vw
+  width: 100vw;
 
 }
 
-.content {
-  background-color: blueviolet;
+main.content-student {
+  background: url(../images/user_background_still_gradient-color.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
 }
