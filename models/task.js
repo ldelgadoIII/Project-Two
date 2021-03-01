@@ -24,7 +24,9 @@ module.exports = function(sequelize, DataTypes) {
       constraints: false,
       foreignKey: "Task_Id"
     });
-    models.Task.belongsTo(models.List);
+    models.Task.belongsTo(models.List, {
+      onDelete: "cascade"
+    });
   };
   return Task;
 };
