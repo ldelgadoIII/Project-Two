@@ -35,4 +35,12 @@ Router.get("/signup", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/signup.html"));
 });
 
+Router.get("/chat", (req, res) => {
+  res.sendFile(__dirname + "../index.html");
+});
+
+Router.get("/dash", (req, res) => {
+  res.sendFile(__dirname + "../dashboard.html");
+});
+
 module.exports = Router;
