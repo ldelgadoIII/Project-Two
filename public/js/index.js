@@ -45,7 +45,7 @@ createTaskBtn.addEventListener("submit", event => {
     ListId: event.target.getAttribute("data-id")
   };
 
-  console.log("listId assignment: ", event.target.getAttribute("data-id"))
+  console.log("listId assignment: ", event.target.getAttribute("data-id"));
   console.log(newTask);
 
   fetch("/api/tasks", {
@@ -82,7 +82,7 @@ deleteListBtns.forEach(button => {
 
       // Reload the page
       if (res.ok) {
-        console.log("List Deleted!")
+        console.log("List Deleted!");
         location.reload();
       }
     });
@@ -105,7 +105,7 @@ deleteTaskBtns.forEach(button => {
 
       // Reload the page
       if (res.ok) {
-        console.log("Task Deleted!")
+        console.log("Task Deleted!");
         location.reload();
       }
     });
