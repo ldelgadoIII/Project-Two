@@ -40,6 +40,36 @@ io.on("connection", socket => {
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
+
+  socket.on("task id", async id => {
+    // get task where id = id i received
+    const task = await db.Task.findOne({
+      where: {
+        id: id
+      }
+    });
+    const newCount = task.dataValues.count + 1;
+    const taskObj = {
+      id: id,
+      count: newCount
+    };
+
+    db.Task.update(
+      // increase count column value by one
+      {
+        count: newCount
+      },
+      {
+        where: {
+          id: id
+        }
+      }
+    ).then(response => {
+      console.log("Update Successful: ", response);
+      io.emit("updated count", taskObj);
+    });
+    // send an update to front end display of count
+  });
 });
 
 db.sequelize.sync({ force: false }).then(() => {
