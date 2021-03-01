@@ -45,13 +45,36 @@
       </div>
     </div>
       </div>
-  
+      <div class="row s4">
+ {{!-- MESSENGER --}}
+    {{!-- <ul id="messages"></ul> --}}
+    <ul id="slide-out" class="side-nav fixed">
+ <div class="container #ffcdd2 red lighten-4">
+      <div class="row right-align">
+        <div class="col s9 right-align">
+          <form id="create-list">
+            <div class="input-field col s9">
+            <label for="text-area">messenger</label>
+           
+            <textarea class="materialize-textarea #ffffff white" type="text" id="list-item" name="newList" ></textarea>
+            </div>
+            <div class="input-field col s3">
+            <button class="btn waves-effect #4caf50 green" type="submit">submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </ul>
+      </div>
+    </div> 
   </div>
   <br>
   <br>
- 
-    <!-- The Task Card -->
-    <div class="container">
+  
+  <!-- The Task Card -->
+  <div class="container">
     
       {{#each lists }}
         {{> lists/user-list}}
@@ -61,119 +84,3 @@
  
 
 <script src="/js/index.js"></script>
-
-<script>
-/*const socket = io();
-
-// CREATE LIST
-const createListBtn = document.getElementById("create-list");
-
-createListBtn.addEventListener("submit", event => {
-  event.preventDefault();
-
-  const newList = {
-    title: document.getElementById("list-item").value.trim()
-  };
-
-  console.log(newList);
-
-  fetch("/api/lists", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newList)
-  }).then(() => {
-    // Empty the form
-    document.getElementById("list-item").value = "";
-
-    console.log("New task created");
-
-    // Reloads the page to see added task
-    location.reload();
-  });
-});
-
-// CREATE TASK
-const createTaskBtn = document.getElementById("create-task");
-
-createTaskBtn.addEventListener("submit", event => {
-  event.preventDefault();
-
-  const newTask = {
-    description: document.getElementById("task-item").value.trim(),
-    // TO DO: Replace "1" with - event.target.getAttribute("data-id");
-    // data-id needs to be assigned to submit button
-    // data-id value will come from an #each that grabs the id of the list
-    ListId: event.target.getAttribute("data-id")
-  };
-
-  console.log("listId assignment: ", event.target.getAttribute("data-id"))
-  console.log(newTask);
-
-  fetch("/api/tasks", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newTask)
-  }).then(() => {
-    // Empty the form
-    document.getElementById("task-item").value = "";
-
-    console.log("New task created");
-
-    // Reloads the page to see added task
-    location.reload();
-  });
-});
-
-// DELETE LIST
-const deleteListBtns = document.querySelectorAll(".remove-list");
-
-deleteListBtns.forEach(button => {
-  button.addEventListener("click", e => {
-    const id = e.target.getAttribute("data-id");
-    console.log("Delete List at ID: ", id);
-
-    fetch(`/api/lists/${id}`, {
-      method: "DELETE"
-    }).then(res => {
-      console.log(res);
-      console.log(`Deleted List ID: ${id}`);
-
-      // Reload the page
-      if (res.ok) {
-        console.log("List Deleted!")
-        location.reload();
-      }
-    });
-  });
-});
-
-// DELETE TASK
-const deleteTaskBtns = document.querySelectorAll(".remove-task");
-
-deleteTaskBtns.forEach(button => {
-  button.addEventListener("click", e => {
-    const id = e.target.getAttribute("data-id");
-    console.log("Delete Task at ID: ", id);
-
-    fetch(`/api/tasks/${id}`, {
-      method: "DELETE"
-    }).then(res => {
-      console.log(res);
-      console.log(`Deleted Task ID: ${id}`);
-
-      // Reload the page
-      if (res.ok) {
-        console.log("Task Deleted!")
-        location.reload();
-      }
-    });
-  });
-});
-*/
-</script>
