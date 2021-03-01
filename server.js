@@ -66,9 +66,10 @@ io.on("connection", socket => {
       }
     ).then(response => {
       console.log("Update Successful: ", response);
+
+      // send an update to front end display of count
       io.emit("updated count", taskObj);
     });
-    // send an update to front end display of count
   });
 });
 
