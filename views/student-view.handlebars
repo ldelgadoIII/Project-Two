@@ -5,20 +5,27 @@
     </div>
   </nav>
 
-  <ul id="slide-out" class="sidenav">
-    <li><div class="user-view">
-      ul id="slide-out" class="side-nav fixed">
-        <ul id="messages"></ul>
-
-      </ul>
-      <label for="text-area">messenger</label>
+  {{!-- MESSENGER --}}
+   {{!-- <ul id="messages"></ul> --}}
+    <ul id="slide-out" class="side-nav fixed">
+ <div class="container #ffcdd2 red lighten-4">
+      <div class="row right-align">
+        <div class="col s9 right-align">
+          <form id="create-list">
+            <div class="input-field col s9">
+            <label for="text-area">messenger</label>
            
             <textarea class="materialize-textarea #ffffff white" type="text" id="list-item" name="newList" ></textarea>
-          </div>
-          <div class="input-field col s3">
-            <button class="btn waves-effect #4a148c purple darken-4" type="submit">Submit
-            </button>
+            </div>
+            <div class="input-field col s3">
+            <button class="btn waves-effect #4caf50 green" type="submit">submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+    </ul>
   
   <br>
   <br>
@@ -53,58 +60,4 @@
      </div>
   </div>
  </div>
-
- <script>
-// UPDATE TASK COUNT
-// TO DO: Get data-count value of task
-// TO DO: Increment count
-// TO DO: Send new count as a put request
-let count = 0;
-
-const currentCount = document.getElementById("counter");
-currentCount.textContent = "Current Task Count: " + count;
-
-// Select button that increments counter
-const increaseCountBtns = document.querySelectorAll(".change-count");
-
-increaseCountBtns.forEach(button => {
-  button.addEventListener("click", e => {
-    e.preventDefault();
-    // Grabs the id of the btn clicked;
-    const id = e.target.getAttribute("data-id");
-    console.log(`Count Btn Clicked with data-id: ${id}`);
-        
-    // Increment count
-    count++;
-    currentCount.textContent = "Current Task Count: " + count;
-    console.log("This is the updated count: ", count);
-
-    // Return new count as an object
-    const updateCount = {
-      count: count
-    };
-    console.log("Updated count object", updateCount);
-
-    fetch(`/api/tasks/${id}`, {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-
-      body: JSON.stringify(updateCount)
-    }).then(response => {
-      if (response.ok) {
-        console.log("Count Increment Successful!")
-        // location.reload();
-      } else {
-        alert("Count was not changed.");
-      }
-    });
-  });
-});
-
-
- </script>
- 
 </main>

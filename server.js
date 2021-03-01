@@ -13,6 +13,9 @@ const db = require("./models");
 const app = express();
 const exphbs = require("express-handlebars");
 
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -32,8 +35,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+io.on("connection", socket => {
+  console.log("a user connected");
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+});
+
 db.sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => {
+  http.listen(PORT, () => {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
