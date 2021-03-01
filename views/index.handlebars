@@ -18,20 +18,24 @@
         <form id="create-list">
           <div class="input-field col s9">
             <label for="text-area">New List</label>
+           
             <textarea class="materialize-textarea #ffffff white" type="text" id="list-item" name="newList" ></textarea>
           </div>
           <div class="input-field col s3">
             <button class="btn waves-effect #4a148c purple darken-4" type="submit">Add List
             </button>
           </div>
+          
         </form>
       </div>
     </div>
   </div>
   
   <div></div>
+  
   <!-- The Task Card -->
   <div class="container">
+    
     {{#each lists }}
       {{> lists/user-list}}
     {{/each }}
