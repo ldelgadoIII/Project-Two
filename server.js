@@ -35,10 +35,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-<<<<<<< HEAD
-db.sequelize.sync({ force: true }).then(() => {
-  app.listen(PORT, () => {
-=======
 io.on("connection", socket => {
   console.log("a user connected");
   socket.on("disconnect", () => {
@@ -78,7 +74,6 @@ io.on("connection", socket => {
 
 db.sequelize.sync({ force: false }).then(() => {
   http.listen(PORT, () => {
->>>>>>> main
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
