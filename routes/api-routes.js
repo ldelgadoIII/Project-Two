@@ -70,13 +70,11 @@ module.exports = function(app) {
   app.get("/api/lists/:id", (req, res) => {
     // Add sequelize code to find a single list where the id is equal to req.params.id,
     // return the result to the user with res.json
-    db.dbList
-      .findOne({
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(result => res.json(result));
+    db.List.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(result => res.json(result));
   });
 
   // POST route for saving a new list

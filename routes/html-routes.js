@@ -25,7 +25,30 @@ Router.get("/", async (req, res) => {
   });
 });
 
-Router.get("/students", async (req, res) => res.render("student-view"));
+Router.get("/students/:id", async (req, res) => {
+  const data = await db.List.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [db.Task]
+  });
+
+  const list = data;
+
+  const tasks = list.dataValues.Tasks.map(task => {
+    return { id: task.id, description: task.description, count: task.count };
+  });
+
+  const listTasks = {
+    id: list.id,
+    title: list.title,
+    tasks: tasks
+  };
+
+  res.render("student-view", {
+    lists: listTasks
+  });
+});
 
 Router.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/login.html"));

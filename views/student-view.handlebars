@@ -1,9 +1,29 @@
 <main class="content-student">
-<nav class="#ef5350 red lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
+  <nav class="#ef5350 red lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons"></i></a>
     </div>
   </nav>
+
+  <br>
+  <br>
+
+  <div class="container">
+	<div class="container #ffcdd2 red lighten-4">
+    	<div class="row">
+      		<form id="task-list">
+        		<div class="col s6">
+          			<p id="create-list" class="flow-text">{{ lists.title }}</p>
+        		</div>
+        
+			    	{{#each lists.tasks }}
+       				{{> tasks/student-task}}
+      			{{/each }}
+       		</form>
+     	</div>
+  	</div>
+ </div>
 
   {{!-- MESSENGER --}}
    {{!-- <ul id="messages"></ul> --}}
@@ -29,6 +49,7 @@
   
   <br>
   <br>
+<<<<<<< HEAD
 
 <!-- LIST -->
 <div class="container">
@@ -57,5 +78,7 @@
      </div>
   </div>
  </div>
+=======
+>>>>>>> main
 </main>
 <script src="/js/student-view.js"></script>
