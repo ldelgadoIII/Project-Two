@@ -5,6 +5,9 @@ const socket = io();
 socket.on("updated count", ({ id, count }) => {
   console.log("Task ID :", id);
   console.log("New count: ", count);
+
+  const counter = document.getElementById(`counter-${id}`);
+  counter.textContent = count;
 });
 
 // CREATE LIST
