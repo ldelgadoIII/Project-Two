@@ -13,6 +13,9 @@ const db = require("./models");
 const app = express();
 const exphbs = require("express-handlebars");
 
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -32,8 +35,50 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+<<<<<<< HEAD
 db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => {
+=======
+io.on("connection", socket => {
+  console.log("a user connected");
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+
+  socket.on("task id", async id => {
+    // get task where id = id i received
+    const task = await db.Task.findOne({
+      where: {
+        id: id
+      }
+    });
+    const newCount = task.dataValues.count + 1;
+    const taskObj = {
+      id: id,
+      count: newCount
+    };
+
+    db.Task.update(
+      // increase count column value by one
+      {
+        count: newCount
+      },
+      {
+        where: {
+          id: id
+        }
+      }
+    ).then(response => {
+      console.log("Update Successful: ", response);
+      io.emit("updated count", taskObj);
+    });
+    // send an update to front end display of count
+  });
+});
+
+db.sequelize.sync({ force: false }).then(() => {
+  http.listen(PORT, () => {
+>>>>>>> main
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,

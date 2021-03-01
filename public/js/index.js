@@ -1,3 +1,12 @@
+const socket = io();
+
+// UPDATE TASK COUNT
+// Receive id from student click event and send the udpated count
+socket.on("updated count", ({ id, count }) => {
+  console.log("Task ID :", id);
+  console.log("New count: ", count);
+});
+
 // CREATE LIST
 const createListBtn = document.getElementById("create-list");
 
@@ -38,10 +47,11 @@ createTaskBtn.addEventListener("submit", event => {
     description: document.getElementById("task-item").value.trim(),
     // TO DO: Replace "1" with - event.target.getAttribute("data-id");
     // data-id needs to be assigned to submit button
-    // data-id value will come from an #each that grabs the value of the list
-    ListId: 1
+    // data-id value will come from an #each that grabs the id of the list
+    ListId: event.target.getAttribute("data-id")
   };
 
+  console.log("listId assignment: ", event.target.getAttribute("data-id"));
   console.log(newTask);
 
   fetch("/api/tasks", {
@@ -58,7 +68,7 @@ createTaskBtn.addEventListener("submit", event => {
     console.log("New task created");
 
     // Reloads the page to see added task
-    // location.reload();
+    location.reload();
   });
 });
 
@@ -79,7 +89,7 @@ deleteListBtns.forEach(button => {
       // Reload the page
       if (res.ok) {
         console.log("List Deleted!");
-        // location.reload();
+        location.reload();
       }
     });
   });
@@ -102,7 +112,7 @@ deleteTaskBtns.forEach(button => {
       // Reload the page
       if (res.ok) {
         console.log("Task Deleted!");
-        // location.reload();
+        location.reload();
       }
     });
   });
