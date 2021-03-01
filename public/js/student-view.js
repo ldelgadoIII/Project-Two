@@ -2,7 +2,7 @@
 const socket = io();
 
 // UPDATE TASK COUNT
-// TO DO: Get data-count value of task
+// TO DO: Get data-count value of task from db
 // TO DO: Increment count
 // TO DO: Send new count as a put request
 let count = 0;
@@ -20,6 +20,8 @@ increaseCountBtns.forEach(button => {
     const id = e.target.getAttribute("data-id");
     console.log(`Count Btn Clicked with data-id: ${id}`);
 
+    socket.emit("task id", id);
+
     // Increment count
     count++;
     currentCount.textContent = "Current Task Count: " + count;
@@ -30,22 +32,5 @@ increaseCountBtns.forEach(button => {
       count: count
     };
     console.log("Updated count object", updateCount);
-
-    fetch(`/api/tasks/${id}`, {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-
-      body: JSON.stringify(updateCount)
-    }).then(response => {
-      if (response.ok) {
-        console.log("Count Increment Successful!");
-        // location.reload();
-      } else {
-        alert("Count was not changed.");
-      }
-    });
   });
 });

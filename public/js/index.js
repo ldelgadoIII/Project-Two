@@ -1,5 +1,11 @@
-// eslint-disable-next-line no-unused-vars
 const socket = io();
+
+// UPDATE TASK COUNT
+// Receive id from student click event and send the udpated count
+socket.on("updated count", ({ id, count }) => {
+  console.log("Task ID :", id);
+  console.log("New count: ", count);
+});
 
 // CREATE LIST
 const createListBtn = document.getElementById("create-list");
