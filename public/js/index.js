@@ -41,37 +41,40 @@ createListBtn.addEventListener("submit", event => {
 });
 
 // CREATE TASK
-const createTaskBtn = document.getElementById("create-task");
+const createTaskBtn = document.querySelectorAll(".create-task");
 
-createTaskBtn.addEventListener("submit", event => {
-  event.preventDefault();
+createTaskBtn.forEach(button => {
+  button.addEventListener("click", event => {
+    event.preventDefault();
 
-  const newTask = {
-    description: document.getElementById("task-item").value.trim(),
-    // TO DO: Replace "1" with - event.target.getAttribute("data-id");
-    // data-id needs to be assigned to submit button
-    // data-id value will come from an #each that grabs the id of the list
-    ListId: event.target.getAttribute("data-id")
-  };
+    const addTaskId = event.target.getAttribute("data-id");
 
-  console.log("listId assignment: ", event.target.getAttribute("data-id"));
-  console.log(newTask);
+    const newTask = {
+      description: document
+        .getElementById(`task-item-${addTaskId}`)
+        .value.trim(),
+      ListId: event.target.getAttribute("data-id")
+    };
 
-  fetch("/api/tasks", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newTask)
-  }).then(() => {
-    // Empty the form
-    document.getElementById("task-item").value = "";
+    console.log("listId assignment: ", event.target.getAttribute("data-id"));
+    console.log(newTask);
 
-    console.log("New task created");
+    fetch("/api/tasks", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newTask)
+    }).then(() => {
+      // Empty the form
+      document.getElementById(`task-item-${addTaskId}`).value = "";
 
-    // Reloads the page to see added task
-    location.reload();
+      console.log("New task created");
+
+      // Reloads the page to see added task
+      location.reload();
+    });
   });
 });
 
