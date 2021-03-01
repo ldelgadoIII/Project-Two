@@ -34,6 +34,15 @@ div.row {
   }
 }
 
+/* MESSAGE */
+.right-align {
+  background-color: rgba(5,4,2,0.1);
+  width:850px;
+  height: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  padding: 15px; }
+
 /* BACKGROUND IMAGE */
 main.content-login { 
   background: url(../images/background_still_gradient-color.jpg) no-repeat center center fixed; 
