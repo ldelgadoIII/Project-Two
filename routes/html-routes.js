@@ -12,12 +12,11 @@ Router.get("/", async (req, res) => {
       task => task.dataValues.description
     );
     return {
+      id: list.dataValues.id,
       title: list.dataValues.title,
       tasks: tasks
     };
   });
-
-  console.log(lists);
 
   res.render("index", {
     lists: lists

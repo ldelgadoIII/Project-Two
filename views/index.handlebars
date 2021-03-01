@@ -1,13 +1,15 @@
-  <nav class="#4a148c purple darken-4" role="navigation">
+
+ <main class="content">
+   
+
+<nav class="#4a148c purple darken-4" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
      
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons"></i></a>
     </div>
   </nav>
   <br>
-  <main class="content">
-    <script src="/public/images/admin_background_still_gradient-color.jpg"> document.body.style.backgroundAttachment = "fixed"</script>
-  </main>
+ 
   <!-- CREATE LIST -->
   <div class="container">
     <div class="container #f3e5f5 purple lighten-5">
@@ -89,5 +91,10 @@
 <ul>
   {{#each lists }}
     <li><h3>{{ title }}</h3></li>
+    <button class="remove-list" data-id="{{id}}">
+		Delete List
+	</button>
   {{/each }}
 </ul>
+  </main>
+  
