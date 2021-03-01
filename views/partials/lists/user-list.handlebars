@@ -1,58 +1,44 @@
 {{!-- Display every list with a create task btn and a delete btn that have a data-id value that corresponds to the list's id --}}
-{{!-- <li>
-	{{title}}
-	<button data-id="{{id}}">
-		Add Task
-	</button>
-	<button class="remove-list" data-id="{{id}}">
-		Delete List
-	</button>
-</li> --}}
-
-    <div class="container #f3e5f5 purple lighten-5">
-      <!-- Page Content goes here -->
-      <div class="row">
-       <!-- LIST TITLE -->
-        <br>
-        <div class="col s6"><h5 class="left-align">{{ title }}</h5></div>
-        <!-- LIST TASK COUNTER -->
-        <div class="col s1">
-          
-        </div>
-      
-              <!-- DELETE LIST BUTTON -->
-        {{!-- TO DO: Change data-id to be assigned by list's id --}}
-        <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4 remove-list" name="action" data-id="{{ id }}">
-          Delete List
-          <i class="material-icons right"></i>
-        </button></div>
-      </div>
-          
+  <div class="container #f3e5f5 purple lighten-5">
+    <!-- Page Content goes here -->
+    <div class="row">
+      <!-- LIST TITLE -->
+      <br>
+      <div class="col s6"><h5 class="left-align">{{ title }}</h5></div>
+    
       <!-- TASK LIST -->
       {{#each tasks }}
-        {{> tasks/user-task}}
+       {{> tasks/user-task}}
       {{/each }}
 
-      <!-- TEXT INPUT AREA -->      
-      <div class="row">
-        <form id="create-task">
+      <!-- DELETE LIST BUTTON -->
+      {{!-- TO DO: Change data-id to be assigned by list's id --}}
+      <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4 remove-list" name="action" data-id="{{ id }}">
+        Delete List
+        <i class="material-icons right"></i>
+      </button></div>
+    </div>
         
-          <div class="input-field col s9">
-             <label for="text-area">New Task</label>
-            <textarea class="materialize-textarea #ffffff white" type="text" id="task-item" name="newTask" ></textarea>
-            <button class="btn waves-effect #4a148c purple darken-4" type="submit">Add Task
-            </button>
-          </div>
-        </form>
-      </div>
-     </div>
-       <!-- SHARE LINK -->
-       <div class="container">
-        <div class="col s9 ">
-            <ul class="collection">
-              <li class="collection-item #4a148c purple darken-4">
-                <a class="white-text" href="#!">Share Link</a>
-              </li>
-            </ul>  
+    <!-- TEXT INPUT AREA -->      
+    <div class="row">
+      <form id="create-task">
+      
+        <div class="input-field col s9">
+            <label for="text-area">New Task</label>
+          <textarea class="materialize-textarea #ffffff white" type="text" id="task-item" name="newTask" ></textarea>
+          <button class="btn waves-effect #4a148c purple darken-4" type="submit">Add Task
+          </button>
         </div>
+      </form>
+    </div>
+    </div>
+      <!-- SHARE LINK -->
+      <div class="container">
+      <div class="col s9 ">
+          <ul class="collection">
+            <li class="collection-item #4a148c purple darken-4">
+              <a class="white-text" href="#!">Share Link</a>
+            </li>
+          </ul>  
       </div>
+    </div>
