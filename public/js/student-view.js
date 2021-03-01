@@ -8,12 +8,12 @@ const increaseCountBtns = document.querySelectorAll(".change-count");
 increaseCountBtns.forEach(button => {
   button.addEventListener("click", e => {
     e.preventDefault();
+
     // Grabs the id of the task clicked
     const id = e.target.getAttribute("data-id");
-    console.log(`Count Btn Clicked with data-id: ${id}`);
+    console.log(`Complete Btn Clicked with data-id: ${id}`);
 
+    // Sends task id to server
     socket.emit("task id", id);
-
-    // currentCount.textContent = "Current Task Count: " + count;
   });
 });
