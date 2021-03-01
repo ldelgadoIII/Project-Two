@@ -7,11 +7,12 @@ Router.get("/", async (req, res) => {
   const data = await db.List.findAll({
     include: [db.Task]
   });
+
   const lists = data.map(list => {
-    // const tasks = list.dataValues.Tasks.map(
-    //   task => task.dataValues.description
-    // );
-    const tasks = list.dataValues.Tasks;
+    const tasks = list.dataValues.Tasks.map(task => {
+      return { id: task.id, description: task.description, count: task.count };
+    });
+
     return {
       id: list.dataValues.id,
       title: list.dataValues.title,
