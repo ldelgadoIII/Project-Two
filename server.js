@@ -22,7 +22,7 @@ app.set("view engine", "handlebars");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Requiring our routes
 app.use(require("./routes/html-routes"));
@@ -66,9 +66,10 @@ io.on("connection", socket => {
       }
     ).then(response => {
       console.log("Update Successful: ", response);
+
+      // send an update to front end display of count
       io.emit("updated count", taskObj);
     });
-    // send an update to front end display of count
   });
 });
 

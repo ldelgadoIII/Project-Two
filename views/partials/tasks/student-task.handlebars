@@ -1,7 +1,19 @@
-{{!-- Display every task with their count and a complete button --}}
-<li>
-	{{description}}
-	<button class="complete-task" data-id="{{id}}" data-count="{{count}}">
-		complete
-	</button>
-</li>
+{{!-- Display every task with their count and a complete button --}}		
+<div class="row">
+	<div class="col s9">
+		<ul class="collection">
+			<li id="task-input" class="collection-item">
+				{{ description }}
+			</li> 
+		</ul>  
+	</div>
+	
+	<br>
+
+	<div class="input-field col s3">
+	{{!-- TO DO: Change id value to be the id of task --}} 
+		<div><h5 id="counter"></h5></div>
+		<button class="complete-task btn waves-effect #4a148c purple darken-4 change-count" type="submit" data-id="{{ id }}" data-count="{{ count }}">Complete
+			</button>
+		</div>
+</div>

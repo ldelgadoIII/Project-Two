@@ -1,5 +1,5 @@
 
- <main class="content">
+<main class="content">
 <nav class="#ef5350 red lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons"></i></a>
@@ -9,6 +9,18 @@
   <br>
   <br>
  
+
+      {{!-- messenger --}}
+      <div class="col 4">
+        <div class="input-field col s9">
+              <label for="text-area">messenger</label>
+              <textarea class="materialize-textarea #ffffff white" type="text" id="list-item" name="newList" ></textarea>
+            </div>
+            <div class="input-field col s3">
+              <button class="btn waves-effect #4caf50 green" type="submit">submit
+              </button>
+            </div>        
+      </div>
   <!-- CREATE LIST -->
   
   <div class="container">
@@ -56,22 +68,19 @@
     </div>
     </ul>
       </div>
-    </div>
-   
-   
-   
-    
+    </div> 
   </div>
   <br>
   <br>
-  <div></div>
   
   <!-- The Task Card -->
   <div class="container">
     
-    {{#each lists }}
-      {{> lists/user-list}}
-    {{/each }}
-  </div>
+      {{#each lists }}
+        {{> lists/user-list}}
+     {{/each }}
+   </div>
+   
+ 
 
 <script src="/js/index.js"></script>
