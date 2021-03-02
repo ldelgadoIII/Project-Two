@@ -20,9 +20,9 @@
   
   ## Usage
 
-  ![Home IMG One](/images/tyl_img_one.PNG)
-  ![Home IMG Two](/images/tyl_img_two.PNG)
-  ![Student Page](/images/student_img.PNG)
+  ![Home IMG One](public/images/tyl_img_one.PNG)
+  ![Home IMG Two](public/images/tyl_img_two.PNG)
+  ![Student Page](public/images/student_img.PNG)
 
   ## License
 
