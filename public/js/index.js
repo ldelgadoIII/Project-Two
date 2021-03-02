@@ -17,7 +17,7 @@ adminSend.addEventListener("click", event => {
 
 socket.on("chat message", msg => {
   const listItem = document.createElement("li");
-  listItem.textContent = "TYL Teacher: " + msg;
+  listItem.textContent = msg;
   messages.appendChild(listItem);
 });
 
