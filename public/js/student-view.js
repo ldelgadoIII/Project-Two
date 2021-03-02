@@ -35,6 +35,6 @@ studentSend.addEventListener("click", event => {
 
 socket.on("chat message", msg => {
   const listItem = document.createElement("li");
-  listItem.textContent = msg;
+  listItem.textContent = `Student:  ${msg}`;
   messageBox.appendChild(listItem);
 });
