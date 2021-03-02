@@ -3,15 +3,7 @@
   <!-- Page Content goes here -->
   <div class="row">
     <!-- LIST TITLE -->
-    <br>
-    <div class="col s6"><h5 class="left-align">{{ title }}</h5></div>
-
-    <!-- DELETE LIST BUTTON -->
-    {{!-- TO DO: Change data-id to be assigned by list's id --}}
-    <div class="col s3"><button class="btn waves-effect #4a148c purple darken-4 remove-list" name="action" data-id="{{ id }}">
-      Delete List
-      <i class="material-icons right"></i>
-    </button></div>
+    <h3 class="left-align list-titles">{{ title }}</h3>
   </div>
 
   <!-- TASK LIST -->
@@ -22,10 +14,14 @@
   <!-- TEXT INPUT AREA -->      
   <div class="row">
     <form>      
-      <div class="input-field col s9">
-        <label for="text-area"></label>
-        <textarea class="materialize-textarea #ffffff white" type="text" id="task-item-{{ id }}" name="newTask" ></textarea>
-        <button class="btn waves-effect #4a148c purple darken-4 create-task" data-id="{{ id }}">Add Task
+      <div class="input-field col s12">
+        <textarea placeholder="Enter Task" class="materialize-textarea " type="text" id="task-item-{{ id }}" name="newTask" ></textarea>
+        <button class="btn waves-effect bgrnd create-task" data-id="{{ id }}">Add Task
+        </button>
+        <!-- DELETE LIST BUTTON -->
+        <button class="btn waves-effect bgrnd remove-list" name="action" data-id="{{ id }}">
+        Delete List
+        <i class="material-icons right"></i>
         </button>
       </div>
     </form>
@@ -36,7 +32,7 @@
 <div class="container">
   <div class="col s9 ">
       <ul class="collection">
-        <li class="collection-item #4a148c purple darken-4">
+        <li class="collection-item #4a148c bgrnd">
           <a class="white-text" href="https://project-two-ljm.herokuapp.com/students/{{ id }}" target="_blank">https://project-two-ljm.herokuapp.com/students/{{ id }}</a>
         </li>
       </ul>  
