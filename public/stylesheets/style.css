@@ -104,3 +104,16 @@ main.content-student {
 li {
   font-size: 20px;
 }
+
+button {
+  border-radius: 20px !important;
+  background-color: #7d5150 !important;
+}
+
+.bgrnd {
+  background-color: #7d5150 !important;
+}
+
+.list-titles {
+  padding: 10px 0px 0px 22px;
+}
