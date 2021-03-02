@@ -1,3 +1,7 @@
+* {
+  font-family: 'Righteous', cursive;
+}
+
 form.signup,
 form.login {
   margin-top: 50px;
@@ -85,10 +89,14 @@ main.content-student {
 
 #message-log {
   width: 890px;
-  height: 200px;
+  height: 150px;
   background: white;
 }
 
 #messages {
   margin-left: 10px;
+}
+
+#type {
+  margin-top: 5px;
 }
