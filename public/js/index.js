@@ -3,7 +3,7 @@ const socket = io();
 // Send Message
 const adminSend = document.getElementById("admin-send");
 const adminMessage = document.getElementById("admin-message");
-// const messages = document.getElementById("messages");
+const messages = document.getElementById("messages");
 
 adminSend.addEventListener("click", event => {
   event.preventDefault();
