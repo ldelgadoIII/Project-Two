@@ -21,7 +21,7 @@ increaseCountBtns.forEach(button => {
 // Send Message
 const studentSend = document.getElementById("student-send");
 const studentMessage = document.getElementById("student-message");
-const messageBox = document.getElementById("message-box");
+const messageBox = document.getElementById("messages");
 
 studentSend.addEventListener("click", event => {
   event.preventDefault();

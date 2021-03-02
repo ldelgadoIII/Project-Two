@@ -78,3 +78,17 @@ main.content-student {
   width: 35px;
   background-color: #00695c;
 }
+
+.messenger-container {
+  width: 650px;
+}
+
+#message-log {
+  width: 890px;
+  height: 200px;
+  background: white;
+}
+
+#messages {
+  margin-left: 10px;
+}
