@@ -89,8 +89,11 @@ main.content-student {
 
 #message-log {
   width: 100%;
-  min-height: 150px;
+  height: 150px;
   background: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-top: 15px;
 }
 
 #messages {
