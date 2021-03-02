@@ -1,7 +1,7 @@
 const db = {
   development: {
     username: "root",
-    password: process.env.JAWSDB_URL,
+    password: process.env.DB_PASS,
     database: "lz0c4oiomawnkck2",
     host: "127.0.0.1",
     dialect: "mysql"
