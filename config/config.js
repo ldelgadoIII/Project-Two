@@ -2,7 +2,7 @@ const db = {
   development: {
     username: "root",
     password: process.env.DB_PASS,
-    database: "lz0c4oiomawnkck2",
+    database: "TYL_DB",
     host: "127.0.0.1",
     dialect: "mysql"
   },
