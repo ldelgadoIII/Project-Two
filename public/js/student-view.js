@@ -17,3 +17,24 @@ increaseCountBtns.forEach(button => {
     socket.emit("task id", id);
   });
 });
+
+// Send Message
+const studentSend = document.getElementById("student-send");
+const studentMessage = document.getElementById("student-message");
+const messageBox = document.getElementById("message-box");
+
+studentSend.addEventListener("click", event => {
+  event.preventDefault();
+
+  console.log("btn clicked!");
+  console.log("Text Value: ", studentMessage.value);
+
+  socket.emit("chat message", studentMessage.value);
+  studentMessage.value = "";
+});
+
+socket.on("chat message", msg => {
+  const listItem = document.createElement("li");
+  listItem.textContent = msg;
+  messageBox.appendChild(listItem);
+});

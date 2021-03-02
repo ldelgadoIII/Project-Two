@@ -41,6 +41,10 @@ io.on("connection", socket => {
     console.log("user disconnected");
   });
 
+  socket.on("chat message", msg => {
+    io.emit("chat message", msg);
+  });
+
   socket.on("task id", async id => {
     // get task where id = id i received
     const task = await db.Task.findOne({
