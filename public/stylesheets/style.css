@@ -117,3 +117,11 @@ button {
 .list-titles {
   padding: 10px 0px 0px 22px;
 }
+
+.student-container {
+  width: 50% !important;
+}
+
+.student-messenger {
+  width: 60% !important;
+}
