@@ -1,14 +1,14 @@
 
 <main class="content">
-  <nav class="#ef5350 red lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
+    <nav class="#ef5350 red lighten-1" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Task Ya Later!</a>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons"></i></a>
-    </div>
-  </nav>
-  <br>
-  <br>
+        </div>
+    </nav>
+      <br>    
+      <br>
 {{!-- messenger --}}
-<div class="container #ffcdd2 red lighten-4">
+    <div class="container roundElement z-depth-2 message-box #ffcdd2 red lighten-4">
   <div class="row">
     <div class="col s9">
       <form id="">
@@ -23,13 +23,11 @@
       </form>
     </div>
   </div>
-</div>
-<br>
-<br>
-  
+    </div>  
+      <br>
+      <br>
   <!-- CREATE LIST -->
-
-  <div class="container #ffcdd2 red lighten-4">
+    <div class="container roundElement z-depth-2 #ffcdd2 red lighten-4">
     <div class="row">
       <div class="col s9">
         <form id="create-list">
@@ -44,19 +42,14 @@
         </form>
       </div>
     </div>
-  </div>
-
- 
-  <br>
-  <br>
-  
+    </div>
+    <br>
+    <br>
   <!-- The Task Card -->
-  <div class="container">
+   <div class="container">
     {{#each lists }}
       {{> lists/user-list}}
     {{/each }}
-  </div>
-   
- 
-
+   </div>
+</main>
 <script src="/js/index.js"></script>

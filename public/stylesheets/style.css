@@ -33,15 +33,20 @@ div.row {
     padding-left: 0px;
   }
 }
+.roundElement	{
+	border-radius: 10px;
+}
 
 /* MESSAGE */
 .message-box {
   background-color: rgba(255, 255, 255, 0.1);
-  width:850px;
-  height: 100%;
+  width:450px;
+  height: 250px;
   margin-left:auto;
   margin-right:auto;
-  padding: 15px; }
+  padding: 15px;
+  opacity: 100%;
+ }
 
 /* BACKGROUND IMAGE */
 main.content-login { 
