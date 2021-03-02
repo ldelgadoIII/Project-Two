@@ -1,5 +1,26 @@
 const socket = io();
 
+// Send Message
+const adminSend = document.getElementById("admin-send");
+const adminMessage = document.getElementById("admin-message");
+// const messages = document.getElementById("messages");
+
+adminSend.addEventListener("click", event => {
+  event.preventDefault();
+
+  console.log("btn clicked!");
+  console.log("Text Value: ", adminMessage.value);
+
+  socket.emit("chat message", adminMessage.value);
+  adminMessage.value = "";
+});
+
+socket.on("chat message", msg => {
+  const listItem = document.createElement("li");
+  listItem.textContent = msg;
+  messages.appendChild(listItem);
+});
+
 // UPDATE TASK COUNT
 // Receive id from student click event and send the udpated count
 socket.on("updated count", ({ id, count }) => {
