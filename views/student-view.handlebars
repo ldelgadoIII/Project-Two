@@ -24,7 +24,7 @@
         <label for="text-area">Messenger</label>
         <textarea class="materialize-textarea" type="text" id="student-message"></textarea>
         <div class="input-field col s3">
-        <button class="btn waves-effect #4a148c purple darken-4" id="student-send" type="">Send Message
+        <button class="btn waves-effect #4a148c bgrnd" id="student-send" type="">Send Message
         </button>
         </div>
       </form>
@@ -38,13 +38,15 @@
 
 	<div class="container #ffcdd2 red lighten-4">
     <div class="row">
-    	<div class="col s6">
-    		<p id="create-list" class="flow-text">{{ lists.title }}</p>
+      <h2 id="create-list" class="flow-text list-titles">{{ lists.title }}</h2>
+    </div>
+      <div class="row">
+        <div class="col s12">
 			    	{{#each lists.tasks }}
        				{{> tasks/student-task}}
       			{{/each }}
+        </div>
       </div>		
-    </div>
   </div>
   
   <br>
