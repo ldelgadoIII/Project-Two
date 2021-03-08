@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+const compression = require("compression");
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
@@ -15,6 +16,8 @@ const exphbs = require("express-handlebars");
 
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
+
+app.use(compression());
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
